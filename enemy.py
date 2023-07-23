@@ -15,7 +15,8 @@ class Enemy(Sprite):
         super().__init__()
         self.screen_rect = self.screen.get_rect()
         # self.image = transform.scale(self.image, choice(ENEMIES_SIZES))
-        self.image = Surface((40, 40))
+        self.size = choice(ENEMIES_SIZES)
+        self.image = Surface(self.size)
         self.image.fill(RED)
         self.rect = self.image.get_rect()
         self.speed_y = choice(ENEMIES_SPEEDS_Y)
@@ -23,7 +24,7 @@ class Enemy(Sprite):
         self.start_position()
 
     def start_position(self):
-        self.rect.x = randint(0, self.screen_rect.width)
+        self.rect.x = randint(0, self.screen_rect.width - self.rect.width)
         self.rect.bottom = randint(-self.rect.height * 2, 0)
 
     def update(self):

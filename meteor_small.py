@@ -7,8 +7,11 @@ from random import choice
 class MeteorSmall(Enemy):
     def __init__(self):
         super().__init__()
-        self.image = Surface(choice(METEOR_SMALL_SIZES))
+        self.size = choice(METEOR_SMALL_SIZES)
+        self.image = Surface(self.size)
         self.image.fill(BLUE)
+        self.rect.width = self.size[0]
+        self.rect.height = self.size[1]
 
     def update(self):
         super().update()
