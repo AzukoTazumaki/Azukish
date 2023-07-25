@@ -1,15 +1,14 @@
 from os import path
-from random import choice
 
 IMG_DIR = image_direction = path.join(path.dirname(__file__), 'images')
 
-WIDTH = 700
-HEIGHT = 1000
+WIDTH = 1920
+HEIGHT = 1080
 FPS = 60
 CAPTION = 'AZUKO'
 
 PLAYER_SPEED = 10
-PLAYER_SIZE = 50, 50
+PLAYER_SIZE = 100, 100
 
 ENEMIES_SPEEDS_Y = (2, 3)
 ENEMIES_SPEEDS_X = (1, -1, 2, -2)
@@ -36,7 +35,8 @@ METEOR_BIG_SIZES = (
 
 BULLET_SPEED = 10
 BULLET_SIZE = (10, 30)
-BULLET_COOLDOWN = 150
+BULLET_COOLDOWN = 100
+AMOUNT_OF_BULLETS = 10
 
 LAST_SHOOT_TIME = 0
 

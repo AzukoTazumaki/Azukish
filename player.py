@@ -1,8 +1,8 @@
 from pygame.sprite import Sprite, Group, groupcollide, spritecollide
 from pygame import key, K_LEFT, K_RIGHT, K_SPACE, time, image as img, transform
-from settings import PLAYER_SPEED, PLAYER_SIZE, BULLET_COOLDOWN, LAST_SHOOT_TIME, IMG_DIR
+from settings import PLAYER_SPEED, PLAYER_SIZE, BULLET_COOLDOWN, LAST_SHOOT_TIME, IMG_DIR, AMOUNT_OF_BULLETS
 from bullet import Bullet
-from create_enemy import CreateEnemy
+from enemies.create_enemy import CreateEnemy
 from screen import Screen
 from os import path
 
@@ -10,13 +10,13 @@ from os import path
 class Player(Sprite):
     screen = Screen().set_mode_screen()
     image = img.load(path.join(IMG_DIR, 'player.png')).convert_alpha()
-    transform.scale(image, PLAYER_SIZE)
 
     def __init__(self, enemies: Group):
         super().__init__()
         self.screen_rect = self.screen.get_rect()
         self.enemies = enemies
         self.speed = PLAYER_SPEED
+        self.image = transform.scale(self.image, PLAYER_SIZE)
         self.rect = self.image.get_rect()
         self.cooldown = BULLET_COOLDOWN
         self.last_shoot_time = LAST_SHOOT_TIME
@@ -35,7 +35,7 @@ class Player(Sprite):
         elif keys[K_RIGHT]:
             self.rect.x += self.speed
         self.check_sides()
-        if keys[K_SPACE] and (self.last_shoot_time + self.cooldown) < ticks and len(self.bullets_group) <= 3:
+        if keys[K_SPACE] and (self.last_shoot_time + self.cooldown) < ticks and len(self.bullets_group) < AMOUNT_OF_BULLETS:
             self.shoot()
             self.last_shoot_time = ticks
         self.draw_bullets()
@@ -53,9 +53,9 @@ class Player(Sprite):
             del self
 
     def check_sides(self):
-        self.rect.left = max(0, self.rect.left)
-        self.rect.right = min(self.screen_rect.width, self.rect.right)
+        self.rect.left = max(-self.rect.width / 2, self.rect.left)
+        self.rect.right = min(self.screen_rect.width + self.rect.width / 2, self.rect.right)
 
     def shoot(self):
-        bullet = Bullet(self.rect.centerx, self.rect.centery - self.rect.height)
+        bullet = Bullet(self.rect.centerx, self.rect.centery - self.rect.height / 2)
         self.bullets_group.add(bullet)

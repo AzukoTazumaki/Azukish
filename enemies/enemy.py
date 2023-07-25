@@ -24,7 +24,9 @@ class Enemy(Sprite):
         self.start_position()
 
     def start_position(self):
-        self.rect.x = randint(0, self.screen_rect.width - self.rect.width)
+        self.rect.x = randint(
+            self.screen_rect.left + self.rect.width / 2,
+            self.screen_rect.width - self.rect.width)
         self.rect.bottom = randint(-self.rect.height * 2, 0)
 
     def update(self):

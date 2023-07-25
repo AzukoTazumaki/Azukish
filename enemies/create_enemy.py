@@ -1,9 +1,9 @@
 from pygame.sprite import Group
-from enemy import Enemy
+from enemies.enemy import Enemy
 from screen import Screen
-from meteor_small import MeteorSmall
-from meteor_big import MeteorBig
-from ufo import UFO
+from enemies.meteor_small import MeteorSmall
+from enemies.meteor_big import MeteorBig
+from enemies.ufo import UFO
 from random import choice
 from settings import AMOUNT_OF_ENEMIES
 

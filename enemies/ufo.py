@@ -1,6 +1,6 @@
 from os import path
-from enemy import Enemy
-from pygame import image as img, transform, Surface
+from enemies.enemy import Enemy
+from pygame import image as img, transform
 from settings import IMG_DIR, UFO_SIZE, UFO_IMG
 
 

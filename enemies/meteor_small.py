@@ -1,15 +1,15 @@
-from pygame import Surface, transform, display
-from enemy import Enemy
-from settings import METEOR_BIG_SIZES, VIOLET
-from random import choice, randint
+from pygame import Surface
+from enemies.enemy import Enemy
+from settings import METEOR_SMALL_SIZES, BLUE
+from random import choice
 
 
-class MeteorBig(Enemy):
+class MeteorSmall(Enemy):
     def __init__(self):
         super().__init__()
-        self.size = choice(METEOR_BIG_SIZES)
+        self.size = choice(METEOR_SMALL_SIZES)
         self.image = Surface(self.size)
-        self.image.fill(VIOLET)
+        self.image.fill(BLUE)
         self.rect.width = self.size[0]
         self.rect.height = self.size[1]
 
