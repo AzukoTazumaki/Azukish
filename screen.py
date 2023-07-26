@@ -1,9 +1,9 @@
-from pygame import display, FULLSCREEN
+from pygame import display
 
 
 class Screen:
     def __init__(self, sizes: tuple):
-        self.screen = display.set_mode(sizes, FULLSCREEN, display=0)
+        self.screen = display.set_mode(sizes)
 
     def set_mode_screen(self):
         return self.screen
