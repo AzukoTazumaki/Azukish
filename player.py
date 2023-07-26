@@ -1,5 +1,5 @@
 from pygame.sprite import Sprite, Group, groupcollide, spritecollide
-from pygame import key, K_LEFT, K_RIGHT, K_SPACE, time, image as img, transform
+from pygame import key, K_LEFT, K_RIGHT, K_SPACE, time, image as img, transform, Surface
 from settings import PLAYER_SPEED, PLAYER_SIZE, BULLET_COOLDOWN, LAST_SHOOT_TIME, IMG_DIR, AMOUNT_OF_BULLETS
 from bullet import Bullet
 from enemies.create_enemy import CreateEnemy
@@ -7,7 +7,7 @@ from os import path
 
 
 class Player(Sprite):
-    def __init__(self, enemies: Group, screen):
+    def __init__(self, enemies: Group, screen: Surface):
         super().__init__()
         self.screen = screen
         self.screen_rect = self.screen.get_rect()

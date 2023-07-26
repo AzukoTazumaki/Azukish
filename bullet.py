@@ -4,7 +4,7 @@ from settings import BULLET_SPEED, BULLET_SIZE, YELLOW
 
 
 class Bullet(Sprite):
-    def __init__(self, screen, x: int, y: int):
+    def __init__(self, screen: Surface, x: int, y: int):
         super().__init__()
         self.screen = screen
         self.screen_rect = self.screen.get_rect()
