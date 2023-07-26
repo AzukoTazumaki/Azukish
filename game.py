@@ -1,4 +1,4 @@
-from pygame import display, time, event as events, QUIT
+from pygame import display, time, event, QUIT
 from pygame.sprite import Group
 from settings import FPS, RUN
 from player import Player
@@ -31,12 +31,11 @@ class Game:
         self.load_player().update()
         while not self.run_game:
             self.clock.tick(FPS)
-            self.background.blit_background()
-            self.background.blit_stars()
+            self.background.load_background()
             loaded_enemies = self.load_enemies()
             loaded_enemies.update()
             self.all_sprites.draw(self.screen)
-            for event in events.get():
-                if event.type == QUIT:
+            for e in event.get():
+                if e.type == QUIT:
                     self.run_game = True
             display.update()
