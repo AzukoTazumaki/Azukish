@@ -1,14 +1,12 @@
 from pygame import image, time
-from screen import Screen
 from settings import IMG_DIR, FPS
 from os import path
 
 
 class Background:
-    screen = Screen().set_mode_screen()
-
-    def __init__(self, iteration=0):
+    def __init__(self, screen, iteration=0):
         self.image_direction = IMG_DIR
+        self.screen = screen
         self.screen_rect = self.screen.get_rect()
         self.background = image.load(path.join(self.image_direction, 'background.png')).convert()
         self.stars_1 = image.load(path.join(self.image_direction, 'stars_1.png')).convert_alpha()

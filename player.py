@@ -3,19 +3,17 @@ from pygame import key, K_LEFT, K_RIGHT, K_SPACE, time, image as img, transform
 from settings import PLAYER_SPEED, PLAYER_SIZE, BULLET_COOLDOWN, LAST_SHOOT_TIME, IMG_DIR, AMOUNT_OF_BULLETS
 from bullet import Bullet
 from enemies.create_enemy import CreateEnemy
-from screen import Screen
 from os import path
 
 
 class Player(Sprite):
-    screen = Screen().set_mode_screen()
-    image = img.load(path.join(IMG_DIR, 'player.png')).convert_alpha()
-
-    def __init__(self, enemies: Group):
+    def __init__(self, enemies: Group, screen):
         super().__init__()
+        self.screen = screen
         self.screen_rect = self.screen.get_rect()
         self.enemies = enemies
         self.speed = PLAYER_SPEED
+        self.image = img.load(path.join(IMG_DIR, 'player.png')).convert_alpha()
         self.image = transform.scale(self.image, PLAYER_SIZE)
         self.rect = self.image.get_rect()
         self.cooldown = BULLET_COOLDOWN
@@ -47,7 +45,7 @@ class Player(Sprite):
 
     def check_collides(self):
         if groupcollide(self.bullets_group, self.enemies, True, True):
-            self.enemies.add(CreateEnemy().create_one_enemy())
+            self.enemies.add(CreateEnemy(self.screen).create_one_enemy())
         if spritecollide(self, self.enemies, True):
             self.kill()
             del self
@@ -57,5 +55,5 @@ class Player(Sprite):
         self.rect.right = min(self.screen_rect.width + self.rect.width / 2, self.rect.right)
 
     def shoot(self):
-        bullet = Bullet(self.rect.centerx, self.rect.centery - self.rect.height / 2)
+        bullet = Bullet(self.screen, self.rect.centerx, self.rect.centery - self.rect.height / 2)
         self.bullets_group.add(bullet)

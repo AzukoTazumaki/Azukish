@@ -3,16 +3,15 @@ from pygame.sprite import Sprite
 from pygame import image as img
 from random import choice, randint
 from settings import ENEMIES_SIZES, ENEMIES_SPEEDS_X, ENEMIES_SPEEDS_Y, IMG_DIR, RED
-from screen import Screen
 from os import path
 
 
 class Enemy(Sprite):
-    screen = Screen().set_mode_screen()
     # image = img.load(path.join(IMG_DIR, 'enemy_ufo.png')).convert_alpha()
 
-    def __init__(self):
+    def __init__(self, screen):
         super().__init__()
+        self.screen = screen
         self.screen_rect = self.screen.get_rect()
         # self.image = transform.scale(self.image, choice(ENEMIES_SIZES))
         self.size = choice(ENEMIES_SIZES)

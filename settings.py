@@ -2,8 +2,7 @@ from os import path
 
 IMG_DIR = image_direction = path.join(path.dirname(__file__), 'images')
 
-WIDTH = 1920
-HEIGHT = 1080
+DESKTOP_SIZES = 1920, 1080
 FPS = 60
 CAPTION = 'AZUKO'
 

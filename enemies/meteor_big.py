@@ -5,8 +5,8 @@ from random import choice
 
 
 class MeteorBig(Enemy):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, screen):
+        super().__init__(screen)
         self.size = choice(METEOR_BIG_SIZES)
         self.image = Surface(self.size)
         self.image.fill(VIOLET)

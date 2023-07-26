@@ -1,14 +1,12 @@
 from pygame import Surface
 from pygame.sprite import Sprite
 from settings import BULLET_SPEED, BULLET_SIZE, YELLOW
-from screen import Screen
 
 
 class Bullet(Sprite):
-    screen = Screen().set_mode_screen()
-
-    def __init__(self, x: int, y: int):
+    def __init__(self, screen, x: int, y: int):
         super().__init__()
+        self.screen = screen
         self.screen_rect = self.screen.get_rect()
         self.speed = BULLET_SPEED
         self.image = Surface(BULLET_SIZE)

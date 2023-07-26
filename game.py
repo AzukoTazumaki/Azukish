@@ -1,24 +1,21 @@
-from os import path
-from pygame import display, time, event as events, QUIT, image
+from pygame import display, time, event as events, QUIT
 from pygame.sprite import Group
 from settings import FPS, RUN
-from screen import Screen
 from player import Player
 from enemies.create_enemy import CreateEnemy
 from background.background import Background
 
 
 class Game:
-    screen = Screen().set_mode_screen()
-    enemies = CreateEnemy().start_enemies()
-    player = Player(enemies)
-    background = Background()
-
-    def __init__(self, image_direction):
+    def __init__(self, image_direction, screen):
         self.clock = time.Clock()
         self.run_game = RUN
         self.all_sprites = Group()
+        self.screen = screen
+        self.enemies = CreateEnemy(self.screen).start_enemies()
         self.screen_rect = self.screen.get_rect()
+        self.player = Player(self.enemies, self.screen)
+        self.background = Background(self.screen)
         self.image_direction = image_direction
 
     def load_enemies(self) -> Group:
@@ -29,10 +26,6 @@ class Game:
     def load_player(self) -> Group:
         self.all_sprites.add(self.player)
         return self.all_sprites
-
-    def load_graphic(self):
-        background = image.load(path.join(self.image_direction, 'background.png')).convert()
-        return background
 
     def run(self):
         self.load_player().update()
