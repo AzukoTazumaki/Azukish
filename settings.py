@@ -9,13 +9,12 @@ BACKGROUND_IMG = path.join(IMG_DIR, 'background.png')
 MAIN_STARS_IMG = path.join(IMG_DIR, 'stars_1.png')
 ADDITIONAL_STARS = path.join(IMG_DIR, 'stars_2.png')
 UFO_IMG = path.join(IMG_DIR, 'enemy_ufo.png')
-PLANETS_IMG = [
-    path.join(IMG_DIR, 'planets', f'planet0{i}.png') for i in range(10)
-]
+PLANETS_IMG = [path.join(IMG_DIR, 'planets', f'planet0{i}.png') for i in range(10)]
+ENEMIES_NAIRAN_IMG = [path.join(IMG_DIR, 'enemies', 'nairan', f'enemy0{i}.png') for i in range(8)]
 
 # ———————————DEFAULT—SETTINGS———————————
 RUN = False
-DESKTOP_SIZES = 1920, 1080
+DESKTOP_SIZES = 600, 900
 FPS = 60
 CAPTION = 'AZUKISH'
 LAST_SHOOT_TIME = 0
@@ -32,15 +31,18 @@ PLAYER_SPEED = 10
 PLAYER_SIZE = 100, 100
 
 # ———————————ENEMIES—SETTINGS———————————
-ENEMIES_SPEEDS_Y = (2.5, 3.5)
+ENEMIES_SPEEDS_Y = (
+    2.5, 2.6, 2.7,
+    3.5, 3.6, 3.7,
+    4.5, 4.6, 4.7,
+    5.5, 5.6, 5.7,
+)
 ENEMIES_SPEEDS_X = (1, -1, 2, -2)
 ENEMIES_SIZES = (
-    (30, 30), (40, 40),
-    (50, 50), (60, 60),
-    (70, 70), (80, 80),
-    (90, 90), (100, 100)
+    (100, 100), (120, 120),
+    (140, 140), (160, 160)
 )
-AMOUNT_OF_ENEMIES = 12
+AMOUNT_OF_ENEMIES = 5
 
 # ———————————UFO—SETTINGS———————————
 UFO_SIZE = 100, 100

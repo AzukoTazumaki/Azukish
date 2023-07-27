@@ -1,5 +1,5 @@
 from pygame import image, time, Surface
-from settings import BACKGROUND_IMG, MAIN_STARS_IMG, ADDITIONAL_STARS, PLANETS_IMG
+from settings import BACKGROUND_IMG, MAIN_STARS_IMG, ADDITIONAL_STARS
 
 
 class Background:
@@ -15,7 +15,7 @@ class Background:
         self.clock = time.Clock()
 
     def load_background(self):
-        for i in range(2):
+        for i in range(3):
             self.screen.blit(self.background_images[i], (0, self.iterations[i]))
             self.screen.blit(self.background_images[i], (0, - self.screen_rect.height + self.iterations[i]))
             if self.iterations[i] == self.screen_rect.height:

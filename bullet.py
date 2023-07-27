@@ -1,4 +1,4 @@
-from pygame import Surface
+from pygame import Surface, mask
 from pygame.sprite import Sprite
 from settings import BULLET_SPEED, BULLET_SIZE, YELLOW
 
@@ -14,6 +14,7 @@ class Bullet(Sprite):
         self.rect = self.image.get_rect()
         self.rect.centerx = x
         self.rect.centery = y
+        self.mask = mask.from_surface(self.image)
 
     def update(self):
         self.rect.y -= self.speed

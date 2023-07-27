@@ -1,4 +1,4 @@
-from pygame import Surface
+from pygame import Surface, mask
 from enemies.enemy import Enemy
 from settings import METEOR_BIG_SIZES, VIOLET
 from random import choice
@@ -12,6 +12,7 @@ class MeteorBig(Enemy):
         self.image.fill(VIOLET)
         self.rect.width = self.size[0]
         self.rect.height = self.size[1]
+        self.mask = mask.from_surface(self.image)
 
     def update(self):
         super().update()

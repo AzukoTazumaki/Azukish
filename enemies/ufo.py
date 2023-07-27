@@ -1,5 +1,5 @@
 from enemies.enemy import Enemy
-from pygame import image as img, transform
+from pygame import image as img, transform, mask
 from settings import UFO_SIZE, UFO_IMG
 
 
@@ -10,3 +10,4 @@ class UFO(Enemy):
         self.rect.width = UFO_SIZE[0]
         self.rect.height = UFO_SIZE[1]
         self.image = transform.scale(self.image, UFO_SIZE)
+        self.mask = mask.from_surface(self.image)
