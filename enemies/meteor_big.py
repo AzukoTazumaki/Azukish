@@ -1,15 +1,16 @@
-from pygame import Surface, mask
+from pygame import Surface, mask, image as img
+from pygame.transform import scale, rotate
+
 from enemies.enemy import Enemy
-from settings import METEOR_BIG_SIZES, VIOLET
+from settings import METEOR_BIG_SIZES, METEORS_BIG_IMG
 from random import choice
 
 
 class MeteorBig(Enemy):
-    def __init__(self, screen):
+    def __init__(self, screen: Surface):
         super().__init__(screen)
         self.size = choice(METEOR_BIG_SIZES)
-        self.image = Surface(self.size)
-        self.image.fill(VIOLET)
+        self.image = scale(img.load(choice(METEORS_BIG_IMG)).convert_alpha(), self.size)
         self.rect.width = self.size[0]
         self.rect.height = self.size[1]
         self.mask = mask.from_surface(self.image)

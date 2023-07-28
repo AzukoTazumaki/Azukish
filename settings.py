@@ -2,6 +2,8 @@ from os import path
 
 # ———————————IMAGES—FOLDER———————————
 IMG_DIR = path.join(path.dirname(__file__), 'images')
+METEORS_BIG_DIR = path.join(IMG_DIR, 'enemies', 'meteors', 'meteor_big')
+METEORS_SMALL_DIR = path.join(IMG_DIR, 'enemies', 'meteors', 'meteor_small')
 
 # ———————————IMAGES———————————
 PLAYER_IMG = path.join(IMG_DIR, 'player.png')
@@ -11,6 +13,9 @@ ADDITIONAL_STARS = path.join(IMG_DIR, 'stars_2.png')
 UFO_IMG = path.join(IMG_DIR, 'enemy_ufo.png')
 PLANETS_IMG = [path.join(IMG_DIR, 'planets', f'planet0{i}.png') for i in range(10)]
 ENEMIES_NAIRAN_IMG = [path.join(IMG_DIR, 'enemies', 'nairan', f'enemy0{i}.png') for i in range(8)]
+METEORS_BIG_IMG = [path.join(METEORS_BIG_DIR, f'meteor_big_0{i}.png') for i in range(8)]
+METEORS_SMALL_IMG = [path.join(METEORS_SMALL_DIR, f'meteor_small_0{i}.png') for i in range(4)]
+
 
 # ———————————DEFAULT—SETTINGS———————————
 RUN = False
@@ -49,7 +54,7 @@ UFO_SIZE = 100, 100
 
 # ———————————METEOR—SETTINGS———————————
 METEOR_SMALL_SIZES = (
-    (30, 30), (40, 40), (50, 50)
+    (40, 40), (50, 50), (60, 60)
 )
 METEOR_BIG_SIZES = (
     (80, 80), (90, 90), (100, 100)

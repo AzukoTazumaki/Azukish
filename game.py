@@ -38,7 +38,7 @@ class Game:
         self.load_player().update()
         self.load_planet().update()
         while not self.run_game:
-            self.clock.tick(FPS)
+            self.clock.tick(60)
             self.background.load_background()
             loaded_enemies = self.load_enemies()
             loaded_enemies.update()
