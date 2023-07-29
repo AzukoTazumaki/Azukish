@@ -1,8 +1,7 @@
 from pygame import Surface
 from pygame.sprite import Group
 from enemies.enemy import Enemy
-from enemies.meteor_small import MeteorSmall
-from enemies.meteor_big import MeteorBig
+from enemies.meteor import Meteor
 from enemies.ufo import UFO
 from random import choice
 from settings import AMOUNT_OF_ENEMIES
@@ -12,7 +11,7 @@ class CreateEnemy:
     def __init__(self, screen: Surface):
         self.enemies = Group()
         self.screen = screen
-        self.all_enemies = [Enemy, UFO, MeteorBig, MeteorSmall]
+        self.all_enemies = [Enemy, UFO, Meteor]
 
     def start_enemies(self):
         for _ in range(AMOUNT_OF_ENEMIES):
