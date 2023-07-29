@@ -38,7 +38,6 @@ class Game:
         self.load_player().update()
         self.load_planet().update()
         while not self.run_game:
-            self.clock.tick(60)
             self.background.load_background()
             loaded_enemies = self.load_enemies()
             loaded_enemies.update()
@@ -46,4 +45,5 @@ class Game:
             for e in event.get():
                 if e.type == QUIT:
                     self.run_game = True
-            display.update()
+            display.flip()
+            self.clock.tick(FPS)

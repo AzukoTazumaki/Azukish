@@ -19,7 +19,7 @@ METEORS_SMALL_IMG = [path.join(METEORS_SMALL_DIR, f'meteor_small_0{i}.png') for 
 
 # ———————————DEFAULT—SETTINGS———————————
 RUN = False
-DESKTOP_SIZES = 600, 900
+DESKTOP_SIZES = 1280, 720
 FPS = 60
 CAPTION = 'AZUKISH'
 LAST_SHOOT_TIME = 0
@@ -47,7 +47,7 @@ ENEMIES_SIZES = (
     (100, 100), (120, 120),
     (140, 140), (160, 160)
 )
-AMOUNT_OF_ENEMIES = 5
+AMOUNT_OF_ENEMIES = 8
 
 # ———————————UFO—SETTINGS———————————
 UFO_SIZE = 100, 100
