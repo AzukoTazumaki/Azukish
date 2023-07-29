@@ -14,7 +14,7 @@ class Enemy(Sprite):
         self.size = choice(ENEMIES_SIZES)
         self.width = self.size[0]
         self.height = self.size[1]
-        self.image_orig = scale(img.load(choice(ENEMIES_NAIRAN_IMG)), (self.width * 1.2, self.height * 1.2))
+        self.image_orig = rotate(scale(img.load(choice(ENEMIES_NAIRAN_IMG)), (self.width * 1.2, self.height * 1.2)), 180)
         self.image = self.image_orig.copy()
         self.rect = self.image.get_rect()
         self.mask = mask.from_surface(self.image)
@@ -27,7 +27,7 @@ class Enemy(Sprite):
 
     def start_position(self):
         self.rect.x = randint(self.screen_rect.left, self.screen_rect.width - self.rect.width)
-        self.rect.y = randint(- self.rect.height * 2, - self.rect.height)
+        self.rect.bottom = randint(- self.rect.height * 2, - self.rect.height)
 
     def rotate(self):
         now = get_ticks()

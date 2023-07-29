@@ -7,6 +7,7 @@ name = "pypi"
 pygame = "*"
 pillow = "*"
 py2app = "*"
+asyncio = "*"
 
 [dev-packages]
 

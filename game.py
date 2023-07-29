@@ -1,6 +1,5 @@
 from pygame import display, time, event, QUIT, Surface
 from pygame.sprite import Group
-
 from background.planet import Planet
 from settings import FPS, RUN
 from player import Player

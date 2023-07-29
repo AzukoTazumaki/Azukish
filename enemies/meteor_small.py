@@ -14,6 +14,7 @@ class MeteorSmall(Enemy):
         self.image = self.image_orig.copy()
         self.rect = self.image.get_rect()
         self.mask = mask.from_surface(self.image)
+        self.start_position()
 
     def update(self):
         super().update()
