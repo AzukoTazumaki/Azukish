@@ -1,5 +1,5 @@
 from pygame.sprite import Sprite, Group, groupcollide, spritecollide, collide_mask
-from pygame import key, K_LEFT, K_RIGHT, K_SPACE, time, image as img, transform, Surface, draw, mask
+from pygame import key, K_LEFT, K_RIGHT, K_SPACE, time, image as img, transform, Surface, mask
 from settings import PLAYER_SPEED, PLAYER_SIZE, PLAYER_IMG, BULLET_COOLDOWN, LAST_SHOOT_TIME, AMOUNT_OF_BULLETS
 from bullet import Bullet
 from enemies.create_enemy import CreateEnemy
@@ -43,7 +43,9 @@ class Player(Sprite):
         self.bullets_group.draw(self.screen)
 
     def check_collides(self):
-        if groupcollide(self.bullets_group, self.enemies, True, True, collide_mask):
+        hits = groupcollide(self.enemies, self.bullets_group, False, True, collide_mask)
+        for enemy in hits:
+            enemy.start_animation()
             self.enemies.add(CreateEnemy(self.screen).create_one_enemy())
         if spritecollide(self, self.enemies, True, collide_mask):
             self.kill()

@@ -2,18 +2,23 @@ from os import path
 
 # ———————————IMAGES—FOLDER———————————
 IMG_DIR = path.join(path.dirname(__file__), 'images')
-METEORS_DIR = path.join(IMG_DIR, 'enemies', 'meteors')
+ENEMIES_DIR = path.join(IMG_DIR, 'enemies')
+METEORS_DIR = path.join(ENEMIES_DIR, 'meteors')
+UFO_DIR = path.join(ENEMIES_DIR, 'ufo')
 
 # ———————————IMAGES———————————
-PLAYER_IMG = path.join(IMG_DIR, 'player.png')
-BACKGROUND_IMG = path.join(IMG_DIR, 'background.png')
-MAIN_STARS_IMG = path.join(IMG_DIR, 'stars_1.png')
-ADDITIONAL_STARS = path.join(IMG_DIR, 'stars_2.png')
-UFO_IMG = path.join(IMG_DIR, 'enemy_ufo.png')
+PLAYER_IMG = path.join(IMG_DIR, 'player', 'player.png')
+BULLETS_IMG = [path.join(IMG_DIR, 'player', 'bullet', f'bullet0{i}.png') for i in range(3)]
+BACKGROUND_IMG = path.join(IMG_DIR, 'background', 'background.png')
+MAIN_STARS_IMG = path.join(IMG_DIR, 'background', 'stars_1.png')
+ADDITIONAL_STARS = path.join(IMG_DIR, 'background', 'stars_2.png')
+UFO_IMG = path.join(UFO_DIR, 'ufo.png')
 PLANETS_IMG = [path.join(IMG_DIR, 'planets', f'planet0{i}.png') for i in range(10)]
-ENEMIES_NAIRAN_IMG = [path.join(IMG_DIR, 'enemies', 'nairan', f'enemy0{i}.png') for i in range(8)]
 METEORS_IMG = path.join(METEORS_DIR, f'meteor.png')
 
+# ———————————ENEMIES—NAIRAN———————————
+ENEMIES_NAIRAN_IMG = [path.join(IMG_DIR, 'enemies', 'nairan', f'enemy0{i}.png') for i in range(8)]
+ENEMIES_NAIRAN_DESTRUCTION = [path.join(IMG_DIR, 'enemies', 'nairan', 'enemy_destruction_00', f'destruction{i}.png') for i in range(18)]
 
 # ———————————DEFAULT—SETTINGS———————————
 RUN = False
@@ -38,17 +43,18 @@ ENEMIES_SPEEDS_Y = (
     2.5, 2.6, 2.7,
     3.5, 3.6, 3.7,
     4.5, 4.6, 4.7,
-    5.5, 5.6, 5.7,
+    5.5, 5.6, 5.7
 )
 ENEMIES_SPEEDS_X = (1, -1, 2, -2)
 ENEMIES_SIZES = (
     (100, 100), (120, 120),
     (140, 140), (160, 160)
 )
+ENEMY_WAIT_NEXT_FRAME = 25
 AMOUNT_OF_ENEMIES = 8
 
 # ———————————UFO—SETTINGS———————————
-UFO_SIZE = 100, 100
+UFO_SIZE = 60, 60
 
 # ———————————METEOR—SETTINGS———————————
 METEOR_SIZES = (
@@ -56,10 +62,12 @@ METEOR_SIZES = (
 )
 
 # ———————————BULLET—SETTINGS———————————
-BULLET_SPEED = 10
-BULLET_SIZE = (4, 30)
-BULLET_COOLDOWN = 100
+BULLET_SPEED = 5
+BULLET_SIZE = (100, 100)
+BULLET_COOLDOWN = 200
 AMOUNT_OF_BULLETS = 100
+BULLET_WAIT_NEXT_FRAME = 100
+
 
 YELLOW = 255, 255, 0
 BLUE = 0, 0, 255

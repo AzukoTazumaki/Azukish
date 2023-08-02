@@ -12,7 +12,6 @@ class Meteor(Enemy):
         self.size = choice(METEOR_SIZES)
         self.image_orig = scale(img.load(METEORS_IMG).convert_alpha(), self.size)
         self.image = self.image_orig.copy()
-        self.rect = self.image.get_rect()
         self.mask = self.set_mask()
         self.start_position()
 
