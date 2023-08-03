@@ -16,9 +16,12 @@ UFO_IMG = path.join(UFO_DIR, 'ufo.png')
 PLANETS_IMG = [path.join(IMG_DIR, 'planets', f'planet0{i}.png') for i in range(10)]
 METEORS_IMG = path.join(METEORS_DIR, f'meteor.png')
 
+# ———————————EXPLOSION———————————
+EXPLOSIONS = [path.join(IMG_DIR, 'explosions', f'Explosion_{i}.png') for i in range(1, 10)]
+EXPLOSION_SIZE = 150, 150
+
 # ———————————ENEMIES—NAIRAN———————————
 ENEMIES_NAIRAN_IMG = [path.join(IMG_DIR, 'enemies', 'nairan', f'enemy0{i}.png') for i in range(8)]
-ENEMIES_NAIRAN_DESTRUCTION = [path.join(IMG_DIR, 'enemies', 'nairan', 'enemy_destruction_00', f'destruction{i}.png') for i in range(18)]
 
 # ———————————DEFAULT—SETTINGS———————————
 RUN = False
@@ -50,7 +53,6 @@ ENEMIES_SIZES = (
     (100, 100), (120, 120),
     (140, 140), (160, 160)
 )
-ENEMY_WAIT_NEXT_FRAME = 25
 AMOUNT_OF_ENEMIES = 8
 
 # ———————————UFO—SETTINGS———————————
@@ -63,8 +65,8 @@ METEOR_SIZES = (
 
 # ———————————BULLET—SETTINGS———————————
 BULLET_SPEED = 5
-BULLET_SIZE = (100, 100)
-BULLET_COOLDOWN = 200
+BULLET_SIZE = (70, 70)
+BULLET_COOLDOWN = 100
 AMOUNT_OF_BULLETS = 100
 BULLET_WAIT_NEXT_FRAME = 100
 

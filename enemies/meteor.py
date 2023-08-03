@@ -23,17 +23,15 @@ class Meteor(Enemy):
         if now - self.last_update > 40:
             self.last_update = now
             self.rot = (self.rot + self.rot_speed) % 360
-            new_image = rotate(self.image_orig, self.rot)
-            new_mask = self.set_mask()
-            self.image = new_image
-            self.mask = new_mask
+            self.image = rotate(self.image_orig, self.rot)
+            self.mask = self.set_mask()
             old_center = self.rect.center
             self.rect = self.image.get_rect()
             self.rect.center = old_center
 
     def update(self):
         super().update()
-        self.rotate()
+        # self.rotate()
         self.rect.x += self.speed_x
         self.speed_x = -self.speed_x \
             if self.rect.left < 0 or self.rect.right > self.screen_rect.width else self.speed_x

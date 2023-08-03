@@ -3,6 +3,7 @@ from pygame import key, K_LEFT, K_RIGHT, K_SPACE, time, image as img, transform,
 from settings import PLAYER_SPEED, PLAYER_SIZE, PLAYER_IMG, BULLET_COOLDOWN, LAST_SHOOT_TIME, AMOUNT_OF_BULLETS
 from bullet import Bullet
 from enemies.create_enemy import CreateEnemy
+from explosion import Explosion
 
 
 class Player(Sprite):
@@ -16,6 +17,7 @@ class Player(Sprite):
         self.mask = mask.from_surface(self.image)
         self.speed = PLAYER_SPEED
         self.cooldown = BULLET_COOLDOWN
+        self.spawn_cooldown = 1000
         self.last_shoot_time = LAST_SHOOT_TIME
         self.bullets_group = Group()
         self.start_position()
@@ -43,6 +45,7 @@ class Player(Sprite):
         self.bullets_group.draw(self.screen)
 
     def check_collides(self):
+        ticks = time.get_ticks()
         hits = groupcollide(self.enemies, self.bullets_group, False, True, collide_mask)
         for enemy in hits:
             enemy.start_animation()
